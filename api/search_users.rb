@@ -1,5 +1,9 @@
 module Restful
   class SearchUsers < Grape::API
+    params do
+      requires :q, type: String
+    end
+
     get '/search/users' do
       search_term = params[ :q ].downcase
       user_table  = $DB[:user]
