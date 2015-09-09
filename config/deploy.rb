@@ -9,7 +9,6 @@ set :repo_url, 'git@github.com:foohey/restful.git'
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/srv/www/restful'
-role :app, "192.168.105.4"
 
 # Default value for :scm is :git
 set :scm, :git
