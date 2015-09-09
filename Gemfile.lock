@@ -12,8 +12,16 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     builder (3.2.2)
+    capistrano (3.4.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
+    capistrano-bundler (1.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
+    colorize (0.7.7)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     dotenv (2.0.2)
@@ -43,12 +51,20 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     mysql2 (0.4.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.2)
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rake (10.4.2)
     sequel (4.26.0)
+    sshkit (1.7.1)
+      colorize (>= 0.7.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -62,6 +78,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano
+  capistrano-bundler
   dotenv
   grape
   grape-swagger
