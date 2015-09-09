@@ -2,22 +2,23 @@
 lock '3.4.0'
 
 set :application, 'restful'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :repo_url, 'git@github.com:foohey/restful.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
+set :deploy_to, '/srv/www/restful'
+role :app, "192.168.105.4"
 
 # Default value for :scm is :git
-# set :scm, :git
+set :scm, :git
 
 # Default value for :format is :pretty
-# set :format, :pretty
+set :format, :pretty
 
 # Default value for :log_level is :debug
-# set :log_level, :debug
+set :log_level, :debug
 
 # Default value for :pty is false
 # set :pty, true
