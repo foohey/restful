@@ -36,7 +36,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push(
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 2
 
 namespace :deploy do
 end
@@ -55,7 +55,7 @@ namespace :server do
   task :stop do
     on roles( :app ) do
       within current_path do
-        execute "if [ -f tmp/restful.pid ] && [ -e /proc/$(cat tmp/restful.pid) ]; then kill -9 `cat tmp/restful.pid`; fi"
+        execute "if [ -f #{current_path}/tmp/restful.pid ] && [ -e /proc/$(cat #{current_path}/tmp/restful.pid) ]; then kill -9 `cat #{current_path}/tmp/restful.pid`; fi"
       end
     end
   end
