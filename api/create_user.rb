@@ -2,6 +2,8 @@ require 'digest'
 
 module Restful
   class CreateUser < Grape::API
+    before { admin_required! }
+
     params do
       requires :email,     type: String
       requires :firstname, type: String
@@ -12,7 +14,7 @@ module Restful
 
     post '/users' do
       # Hash password
-      params[ :password ] = Digest::MD5.new.update( params[ :password ] )
+      params[ :password ] = Digest::SHA1.hexdigest( params[ :password ] )
 
       user = User.new( params )
 
