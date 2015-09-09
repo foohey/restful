@@ -1,23 +1,27 @@
 require 'rubygems'
 require 'bundler/setup'
 
+# Require gems
 Bundler.require :default
 
+# Load environment configuration
 Dotenv.load
 
+# Include API classes
 Dir[ "./api/*.rb" ].each do |file|
   require file
 end
 
+# Include the grape configuration
 require './api'
 
+# Database connection
 $DB = Sequel.connect(
   adapter:  :mysql2,
   database: :restful,
   user:     ENV['DB_USER'],
   password: ENV['DB_PASSWORD']
 )
-  # 'mysql2://m4t@localhost/restful'
 
 module Restful
   class App

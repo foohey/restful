@@ -10,3 +10,5 @@ gem 'dotenv'
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rvm'
+
+gem 'pry'
