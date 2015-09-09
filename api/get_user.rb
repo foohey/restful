@@ -4,10 +4,14 @@ module Restful
       users = $DB[:user]
       user  = users[ id: params[ :id ] ]
 
-      # Remove password from object
-      user.delete( :password )
+      if user
+        # Remove password from object
+        user.delete( :password )
 
-      return user
+        return user
+      else
+        return { error: "User not found" }
+      end
     end
   end
 end
