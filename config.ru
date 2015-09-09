@@ -7,6 +7,7 @@ Bundler.require :default
 # Load environment configuration
 Dotenv.load
 
+
 # Include API classes
 Dir[ "./api/*.rb" ].each do |file|
   require file
@@ -22,6 +23,11 @@ $DB = Sequel.connect(
   user:     ENV['DB_USER'],
   password: ENV['DB_PASSWORD']
 )
+
+# Include Models
+Dir[ "./models/*.rb" ].each do |file|
+  require file
+end
 
 module Restful
   class App
