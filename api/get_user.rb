@@ -1,6 +1,6 @@
 module Restful
   class GetUser < Grape::API
-    get '/user/:id' do
+    get '/users/:id' do
       users = $DB[:user]
       user  = users[ id: params[ :id ] ]
 
