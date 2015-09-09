@@ -69,4 +69,4 @@ namespace :server do
   end
 end
 
-after 'deploy:restart', 'server:restart'
+after 'deploy:finished', 'server:restart'
