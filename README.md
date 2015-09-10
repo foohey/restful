@@ -20,14 +20,21 @@ export DB_USERNAME=change_me
 export DB_PASSWORD=change_me
 ```
 
-Now create a database named `restful` and inject the sql file :
+Now create a database named `restful` and `restful_test` and inject the sql file :
 
 ```
 $ mysql restful < database.sql
+$ mysql restful_test < database.sql
 ```
 
 Then you can run the development server by running :
 
 ```
 $ ./dev_server.sh
+```
+
+# Run tests
+
+```
+$ rspec
 ```

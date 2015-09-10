@@ -7,6 +7,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    api_matchers (0.6.2)
+      activesupport (>= 3.2.5)
+      nokogiri (>= 1.5.2)
+      rspec (>= 3.1)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -28,6 +32,7 @@ GEM
     colorize (0.7.7)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
+    diff-lcs (1.2.5)
     dotenv (2.0.2)
     equalizer (0.0.11)
     grape (0.13.0)
@@ -52,6 +57,7 @@ GEM
     json (1.8.3)
     method_source (0.8.2)
     mime-types (2.6.1)
+    mini_portile (0.6.2)
     minitest (5.8.0)
     multi_json (1.11.2)
     multi_xml (0.5.5)
@@ -59,6 +65,8 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
+    nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -68,7 +76,22 @@ GEM
       rack (>= 0.4)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rake (10.4.2)
+    rspec (3.3.0)
+      rspec-core (~> 3.3.0)
+      rspec-expectations (~> 3.3.0)
+      rspec-mocks (~> 3.3.0)
+    rspec-core (3.3.2)
+      rspec-support (~> 3.3.0)
+    rspec-expectations (3.3.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-mocks (3.3.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-support (3.3.0)
     sequel (4.26.0)
     slop (3.6.0)
     sshkit (1.7.1)
@@ -88,6 +111,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  api_matchers
   capistrano
   capistrano-bundler
   capistrano-rvm
@@ -98,6 +122,8 @@ DEPENDENCIES
   mysql2
   pry
   rack
+  rack-test
+  rspec
   sequel
 
 BUNDLED WITH
