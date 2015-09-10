@@ -11,4 +11,9 @@ gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rvm'
 
-gem 'pry'
+group :test, :development do
+  gem 'pry'
+  gem 'rspec'
+  gem 'rack-test'
+  gem 'api_matchers'
+end
