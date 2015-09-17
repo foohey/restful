@@ -31,6 +31,23 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods
   config.include APIMatchers::RSpecMatchers
 
+  config.before :suite do
+    $admin_user = User.find_or_create( email: "admin@mail.fr" ) do |user|
+      user.password = Digest::SHA1.hexdigest( "pass" )
+      user.role     = "admin"
+    end
+
+    $normal_user = User.find_or_create( email: "normal@mail.fr" ) do |user|
+      user.password = Digest::SHA1.hexdigest( "pass" )
+      user.role     = "normal"
+    end
+  end
+
+  config.after :suite do
+    $admin_user.destroy
+    $normal_user.destroy
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

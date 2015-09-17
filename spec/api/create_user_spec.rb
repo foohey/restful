@@ -4,7 +4,7 @@ describe Restful::CreateUser do
 
     context "With normal user" do
       it 'should return return a 403 error ( forbidden )' do
-        authorize( 'darius.mckay@mail.fr', 'pass' )
+        authorize( $normal_user.email, 'pass' )
         post '/users', { firstname: 'foo' }
         expect( last_response.status ).to eq( 403 )
         expect( last_response.body ).to have_node( :message ).with( "Unauthorized" )
@@ -13,7 +13,7 @@ describe Restful::CreateUser do
 
     context "With admin user" do
       before do
-        authorize( 'kyla.walker@mail.fr', 'pass' )
+        authorize( $admin_user.email, 'pass' )
       end
 
       context "With missing attributes" do
@@ -35,6 +35,20 @@ describe Restful::CreateUser do
             password:  'pass',
           }
           expect( last_response.body ).to have_node( :email ).including_text( "is already taken" )
+        end
+      end
+
+      context "With valid attributes" do
+        it "should save the user and return id" do
+          post '/users', {
+            firstname: 'foo',
+            lastname:  'bar',
+            email:     "#{rand(4212..4213425)}kyla.walker@mail.fr",
+            role:      'normal',
+            password:  'pass',
+          }
+          expect( last_response.status ).to eq( 201 )
+          expect( last_response.body ).to have_node( :id ).with( User.last.id )
         end
       end
     end

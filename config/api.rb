@@ -1,3 +1,5 @@
+require 'active_support/json'
+
 module PrettyJSON
   def self.call(object, env)
     JSON.pretty_generate(JSON.parse(object.to_json))
@@ -39,6 +41,8 @@ module Restful
     mount Restful::GetUser
     mount Restful::SearchUsers
     mount Restful::CreateUser
+    mount Restful::DeleteUser
+    mount Restful::UpdateUser
 
     add_swagger_documentation mount_path: '/'
 
