@@ -1,3 +1,13 @@
+# Restful
+School project with the goal to build a REST API with a given database
+
+Tools used:
+* Ruby <3
+* Rack
+* Grape
+* Sequel
+* Capistrano
+
 # Installation
 
 ```
